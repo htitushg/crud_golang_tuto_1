@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: url('papier1.jpg') no-repeat;
+    background-size: cover;
+    font-family: Verdana, sans-serif; 
+}
+
+.bouton1 {
+    padding-left: 1rem;
+    width:10vw;
+    margin:0.5rem 0.5rem;
+    text-align: center;
+    color: #000000;
+    background-color: #00000000; 
+    font-size: calc(0.5rem + 0.5vw);
+    padding: 0.5rem 0.6rem;
+
+}
+.bouton1:hover {
+color: #15218d;
+}
+.bouton2 {
+    padding-left: 1rem;
+    width:10vw;
+    margin:0.5rem 0.5rem;
+    text-align: center;
+    color: #000000;
+    background-color: #00000000; 
+    font-size: calc(0.5rem + 0.5vw);
+    padding: 0.5rem 0.6rem;
+
+}
+.bouton2:hover {
+    color: #8d2315;
+}
+.cell-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    border: none;
+}
+.form-label{
+    display:inline-block;
+    margin: 0.2rem;
+    padding-top: 0.2rem ;
+    padding-bottom: 0.2rem;
+    color: #000107;
+    background-color: #ccccdaf0;/* ajout des deux derniers chiffres pour la transparence*/
+    width: 30vw;
+    height: calc(1.5rem + 1vw);
+    /*border-radius: .5rem;*/
+    border: 2px solid #00000000; /* ajout des deux derniers chiffres pour la transparence*/
+    text-align: center;
+    font-size: calc(0.5rem + .7vw);
+
+}
+.form-control{
+    display:inline-block;
+    margin: 0.2rem;
+    padding-top: 0.2rem ;
+    padding-bottom: 0.2rem;
+    color: #01030c;
+    background-color: #00000000;/* ajout des deux derniers chiffres pour la transparence*/
+    width: 30vw;
+    height: calc(1.5rem + 1vw);
+    /*border-radius: .5rem;*/
+    border: 2px solid #00008bf0; /* ajout des deux derniers chiffres pour la transparence*/
+    text-align: center;
+    font-size: calc(0.5rem + .7vw);
+}
+.table {
+    width: 95vw;
+    height: calc(2rem + 1vw);
+    border-radius: .5rem;
+    background-color: #00000000;
+    border: 2px solid #030331; /* #00008bff ajout des deux derniers chiffres pour la transparence*/
+    text-align: center;
+    font-size: calc(0.7rem + 0.5vw);
+}
+.data {
+    border: 2px solid #000000ff;
+    background-color: #00000000;
+    height: calc(1rem + 1vw);
+    font-size: calc(0.7rem + 0.5vw);
+    text-align: center;
+}
+tr:nth-child(even) {background-color: #99722950;}
+tr:nth-child(odd) {background-color: #ce973300;}
+.tableh {
+    width: 50vw;
+    height: calc(2rem + 1vw);
+    border-radius: .5rem;
+    background-color: #00000000;
+    border: 2px solid #030331; /* #00008bff ajout des deux derniers chiffres pour la transparence*/
+    text-align: center;
+}
+.datav:hover {
+    background-color: #cca150;
+    border: 2px solid #000000ff;
+}
+.datav {
+    border: 2px solid #000000ff;
+    background-color: #00000000;
+    height: calc(1rem + 1vw);
+    font-size: calc(0.7rem + 0.5vw);
+    text-align: center;
+}
+/*Ajouté pour le footer*/
+
+footer {
+  flex-shrink: 0;
+  border-top: 1px dashed #000;
+  width: 100%;
+  background: #ffff0000;
+  color: #333;
+}
+
+.contenu-footer {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 20px;
+  padding: 50px 0 100px;
+}
+
+.bloc {
+  width: 25%;
+  margin: 0 30px;
+}
+
+/* contact */
+.footer-services h3,
+.footer-informations h3,
+.footer-contact h3 {
+  font-size: 2rem + 0.7vh;
+  padding-bottom: 2rem;
+}
+
+.footer-contact p {
+  padding: 0.5rem 0;
+}
+
+/* Services */
+
+.liste-services,
+.liste-information {
+  list-style-type: none;
+}
+
+.liste-services li {
+  padding: 2px 0;
+}
+
+.liste-services a {
+  text-decoration: none;
+  color: #333;
+}
+.liste-services a:hover {
+  color: rgb(3, 3, 3);
+}
+/*Footer fin-----------------------*/
+/*Header début---------------------*/
+header{
+    margin-top: 2vw;
+    display: flex;
+    justify-content: space-evenly;
+}
+#icone
+{
+    margin-bottom: 0.5vw;
+    margin-left: 0.5rem;
+    vertical-align: middle; 
+}
+.entete{
+    display: inline-block;
+    vertical-align: middle;
+    letter-spacing: 20px;
+    font-weight: normal;
+    color: #336600;
+    margin-left: 25%;
+    text-shadow: 2px 2px 5px grey;
+    line-height :8rem + 2 vw;
+    font-size: 3em;
+    text-align: center;
+    text-shadow: 2px 2px 4px grey;
+}
+ 
+  header > time {
+    font: italic 2rem sans-serif;
+  }
+  
+/*Header fin-----------------*/

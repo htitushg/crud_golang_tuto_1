@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{{ template "base" . }}
+
+{{ define "content" }}
+
+    <div class="container">
+      <div class="part2">
+        <h1  >{{.Name}}, Nombre = {{.Nombre}}</h1>
+      </div>
+      <a href="/AddUser" class="bouton3">Ajouter un utilisateur</a>
+    <div class="part2">
+    <table class="table">
+      <thead>
+      <th>Id</th>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>CreatedAt</th>
+      <th>UpdatedAt</th>
+      <th>Actions</th>
+      </thead>
+      <tbody>
+        
+          {{range .Users}}
+          
+          <tr>
+            <td class="data">{{.Id}}</td>
+            <td class="data">{{.Nom}} </td>
+            <td class="data">{{.Prenom}}</td>
+            <td class="data">{{.Email}}</td>
+            <td class="data">{{.Password}}</td>
+            <td class="data">{{.CreatedAt}}</td>
+            <td class="data">{{.UpdatedAt}}</td>
+            <td class="cell-buttons">
+            <form action="/UpdateUser/{{.Id}}" method="post">
+              <button id="subbtn" type="submit" class="bouton1">Update</button> 
+            </form>
+            <form action="/DeleteUser/{{.Id}}" method="post">
+              <button id="subbtn" type="submit" class="bouton2">Delete</button>
+            </form>
+          </td>
+          </tr>
+          {{end}}
+      </tbody>
+    </table>
+      </div>
+    </div>
+  
+  {{end}}

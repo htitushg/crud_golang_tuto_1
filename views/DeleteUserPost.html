@@ -1,0 +1,17 @@
+<!doctype html>
+
+{{ template "base" . }}
+
+{{ define "content" }}
+<div class="container">
+    <div class="card mb-3">
+        <h1 class = "card-title text-center mb-3" >Tutoriel Crud en Golang</h1>
+    </div>
+    <div class="row mt-3">
+        <h1>{{.Name}}</h1>
+        <p>
+            <a href="/" class="bouton3">Retour à la page d'accueil</a>
+        </p>
+    </div>
+</div>
+{{end}}
