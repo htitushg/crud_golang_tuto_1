@@ -6,9 +6,9 @@
     <div class="container">
       <div class="part2">
         <h1  >{{.Name}}, Nombre = {{.Nombre}}</h1>
-      </div>
-      <a href="/AddUser" class="bouton3">Ajouter un utilisateur</a>
-    <div class="part2">
+        <a href="/AddUser"><span class="bouton3">Ajouter un Utilisateur</span> </a>
+      </div>  
+    <div>
     <table class="table">
       <thead>
       <th>Id</th>
@@ -21,9 +21,7 @@
       <th>Actions</th>
       </thead>
       <tbody>
-        
           {{range .Users}}
-          
           <tr class="tutils">
             <td class="data">{{.Id}}</td>
             <td class="data">{{.Nom}} </td>

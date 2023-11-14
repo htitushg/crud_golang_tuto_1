@@ -3,17 +3,17 @@
 {{ template "base" . }}
 
 {{ define "content" }}
+<div class="corps">
 
 <div class="container">
     <div class="">
         <h1 class = "card-title text-center mb-3" >Tutoriel Crud en Golang</h1>
     </div>
-    
-
+    <div class="part2">
+        <h2 class = "" >Ajouter un utlisateur</h2>
+        <a href="/"><span class="bouton3">Retour à la page d'accueil</span> </a>
+    </div>
         <div class="col">
-            <div class="class mb-3">
-                <h2 class = "" >Ajouter un utlisateur</h2>
-            </div>
             <form action="/AddUserPost" method="post">
             <table class="tableh">  
                 <tbody>
@@ -25,10 +25,8 @@
             </table>
             <input type="submit" class="bouton1" value="Enregistrer">
             </form>
-            <p>
-                <a href="/" class="bouton3">Retour à la page d'accueil</a>
-            </p>
+            
         </div>
-    
+    </div>
 </div>    
 {{end}}

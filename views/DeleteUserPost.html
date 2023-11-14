@@ -3,15 +3,15 @@
 {{ template "base" . }}
 
 {{ define "content" }}
+<div class="corps">
 <div class="container">
-    <div class="card mb-3">
+    <div class="part2">
         <h1 class = "card-title text-center mb-3" >Tutoriel Crud en Golang</h1>
+        <a href="/"><span class="bouton3">Retour à la page d'accueil</span> </a>
     </div>
     <div class="row mt-3">
         <h1>{{.Name}}</h1>
-        <p>
-            <a href="/" class="bouton3">Retour à la page d'accueil</a>
-        </p>
     </div>
+</div>
 </div>
 {{end}}
