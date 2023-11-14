@@ -2,7 +2,7 @@
 {{ template "base" . }}
 
 {{ define "content" }}
-
+<div class="corps">
     <div class="container">
       <div class="part2">
         <h1  >{{.Name}}, Nombre = {{.Nombre}}</h1>
@@ -24,7 +24,7 @@
         
           {{range .Users}}
           
-          <tr>
+          <tr class="tutils">
             <td class="data">{{.Id}}</td>
             <td class="data">{{.Nom}} </td>
             <td class="data">{{.Prenom}}</td>
@@ -46,5 +46,5 @@
     </table>
       </div>
     </div>
-  
+  </div>
   {{end}}

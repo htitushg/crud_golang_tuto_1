@@ -6,12 +6,19 @@ body {
     background: url('papier1.jpg') no-repeat;
     background-size: cover;
     font-family: Verdana, sans-serif; 
+    margin: 5px 5px 5px 5px;
 }
-
+.corps{
+  margin: 5px 5px 5px 5px;
+display: flex;
+  justify-content: space-around;
+  align-items:center;
+}
 .bouton1 {
     padding-left: 1rem;
     width:10vw;
     margin:0.5rem 0.5rem;
+    border-radius: .5rem;
     text-align: center;
     color: #000000;
     background-color: #00000000; 
@@ -26,6 +33,7 @@ color: #15218d;
     padding-left: 1rem;
     width:10vw;
     margin:0.5rem 0.5rem;
+    border-radius: .5rem;
     text-align: center;
     color: #000000;
     background-color: #00000000; 
@@ -109,65 +117,58 @@ tr:nth-child(odd) {background-color: #ce973300;}
 }
 /*Ajouté pour le footer*/
 
-footer {
-  flex-shrink: 0;
-  border-top: 1px dashed #000;
-  width: 100%;
-  background: #ffff0000;
-  color: #333;
-}
 
-.contenu-footer {
+footer{
+  /* haut | droit | bas | gauche */
+margin: 5px 5px 5px 5px;
+display: flex;
+  justify-content: space-around;
+  align-items:center;
+
+}
+#main{
   width: 100%;
-  margin: 0 auto;
+  margin: 0.2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items:center;
+    
+  }
+  #main div{
+    /*width: 70px;
+    height: 70px;
+    height: calc(5rem + 1vw);*/
+    font-size: 2rem + 0.7vh;
+    padding-bottom: 2rem;
+  }
+.footer-services{
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  font-size: 20px;
-  padding: 50px 0 100px;
+  align-items:center;
+} 
+.footer-informations{
+  display: flex;
+  justify-content: center;
+  align-items:center;
 }
-
-.bloc {
-  width: 25%;
-  margin: 0 30px;
-}
-
-/* contact */
-.footer-services h3,
-.footer-informations h3,
-.footer-contact h3 {
-  font-size: 2rem + 0.7vh;
-  padding-bottom: 2rem;
-}
-
-.footer-contact p {
-  padding: 0.5rem 0;
-}
-
-/* Services */
-
-.liste-services,
-.liste-information {
-  list-style-type: none;
-}
-
-.liste-services li {
-  padding: 2px 0;
-}
-
-.liste-services a {
-  text-decoration: none;
-  color: #333;
-}
-.liste-services a:hover {
-  color: rgb(3, 3, 3);
+.footer-contact{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+} 
+.copyright{
+  color: #0a1d70;
+  border-radius: .5rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items:center;
 }
 /*Footer fin-----------------------*/
 /*Header début---------------------*/
 header{
-    margin-top: 2vw;
-    display: flex;
-    justify-content: space-evenly;
+  margin: 5px 5px 5px 5px;
+  display: flex;
+  justify-content: space-evenly;
 }
 #icone
 {
@@ -181,9 +182,9 @@ header{
     letter-spacing: 20px;
     font-weight: normal;
     color: #336600;
-    margin-left: 25%;
+    /*margin-left: 25%;*/
     text-shadow: 2px 2px 5px grey;
-    line-height :8rem + 2 vw;
+    line-height :5rem + 2 vw;
     font-size: 3em;
     text-align: center;
     text-shadow: 2px 2px 4px grey;
