@@ -20,7 +20,7 @@ body {
 .part2{
   margin:1rem;
   display: flex;
-  justify-content: space-evenl;
+  justify-content: space-around; /*evenly;*/
   align-items:center;
 }
 .bouton1 {
