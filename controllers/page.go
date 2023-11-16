@@ -68,16 +68,11 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	myUsers := make([]config.User, 0)
 	i := 0
 	for rows.Next() {
-		//err = rows.Scan(&models.Arr.Nom, &models.Arr.Prenom, &models.Arr.Email, &models.Arr.Password, &models.Arr.Id)
 		err = rows.Scan(&UnUser.Nom, &UnUser.Prenom, &UnUser.Email, &UnUser.Password, &UnUser.Id, &UnUser.CreatedAt, &UnUser.UpdatedAt)
 		config.CheckError(err)
 		UnUser.Id = strings.Join(strings.Fields(UnUser.Id), "")
-		//UnUser.Nom = strings.Join(strings.Fields(nom), "")
-		//UnUser.Prenom = strings.Join(strings.Fields(prenom), "")
 		UnUser.Email = strings.Join(strings.Fields(UnUser.Email), "")
-		//UnUser.Password = strings.Join(strings.Fields(password), "")
-
-		myUsers = append(myUsers, UnUser) //, models.Arr)
+		myUsers = append(myUsers, UnUser)
 		i++
 
 		fmt.Printf("Id : %s, Nom: %s, Prenom: %s, Courriel: %s, Pass: %s\n", UnUser.Id, UnUser.Nom, UnUser.Prenom, UnUser.Email, UnUser.Password)
@@ -88,19 +83,13 @@ func Home(w http.ResponseWriter, r *http.Request) {
 		Name:   "Liste des utilisateurs inscrits dans la base mysql",
 		Users:  myUsers,
 	}
-	fmt.Printf("data.Name : %s, data.Nombre: %d", data.Name, data.Nombre)
-
-	//tmpl := template.Must(template.ParseFiles("views/home.html"))
-	//tmpl.Execute(w, data)
-	//tmpl.ExecuteTemplate()
+	//fmt.Printf("data.Name : %s, data.Nombre: %d", data.Name, data.Nombre)
 
 	renderTemplate(w, "home", &data)
 }
 
 func AddUser(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "AddUser", nil)
-	//tmpl := template.Must(template.ParseFiles("views/AddUser.html"))
-	//tmpl.Execute(w, nil)
 }
 
 func AddUserPost(w http.ResponseWriter, r *http.Request) {
@@ -122,7 +111,7 @@ func AddUserPost(w http.ResponseWriter, r *http.Request) {
 	DatedeCreation = []byte(time.Now().Format("2006-01-02"))
 	DatedeMaj = []byte(time.Now().Format("2006-01-02"))
 
-	fmt.Printf("Avant création dans la table = Id= %s, Nom: %s, Prenom: %s, Courriel: %s, Pass: %s, CreatedAt: %s, UpdatedAt: %s\n", user.Id, user.Nom, user.Prenom, user.Email, user.Password, user.CreatedAt, user.UpdatedAt)
+	//fmt.Printf("Avant création dans la table = Id= %s, Nom: %s, Prenom: %s, Courriel: %s, Pass: %s, CreatedAt: %s, UpdatedAt: %s\n", user.Id, user.Nom, user.Prenom, user.Email, user.Password, user.CreatedAt, user.UpdatedAt)
 
 	// INSERT INTO users
 	Db, err := sql.Open("mysql", "henry:11nhri04p@tcp(127.0.0.1:3306)/base1")
@@ -138,9 +127,6 @@ func AddUserPost(w http.ResponseWriter, r *http.Request) {
 		log.Fatalf("impossible to retrieve last inserted id: %s", err)
 	}
 	log.Printf("inserted id: %d", id)
-
-	//myUsers1 := make([]config.User, 0)
-	//clear(myUsers1)
 	userSql := "SELECT * FROM users ;"
 	rows, err := Db.Query(userSql)
 	config.CheckError(err)
@@ -150,17 +136,14 @@ func AddUserPost(w http.ResponseWriter, r *http.Request) {
 		config.CheckError(err)
 		user.UpdatedAt = string(DatedeMaj)
 		user.CreatedAt = string(DatedeCreation)
-
 		user.Email = strings.Join(strings.Fields(user.Email), "")
-		//myUsers1 = append(myUsers1, user)
 	}
 	data := config.Utilisateur{
 		Name: "Mise à jour Utilisateur :" + user.Nom,
 		User: user,
 	}
 	// Fin de l'ajout du 8/11/2023 à 12h30
-	//tmpl := template.Must(template.ParseFiles("views/AddUserPost.html"))
-	//tmpl.Execute(w, data)
+
 	renderTemplate(w, "AddUserPost", &data)
 }
 
@@ -187,17 +170,14 @@ func UpdateUser(w http.ResponseWriter, r *http.Request) {
 		unuser.CreatedAt = string(DatedeCreation)
 	}
 
-	fmt.Printf("CreatedAt: %#v \nUpdatedAt: %#v \n", DatedeCreation, DatedeMaj)
-	//Arr.CreatedAt = DatedeCreation.String()
-
-	fmt.Printf("UpdateUser: Id : %s, Nom: %s, Prenom: %s, Courriel: %s, Pass: %s, CreatedDat: %s, UpdatedAt: %s \n", unuser.Id, unuser.Nom, unuser.Prenom, unuser.Email, unuser.Password, unuser.CreatedAt, DatedeMaj)
+	//fmt.Printf("CreatedAt: %#v \nUpdatedAt: %#v \n", DatedeCreation, DatedeMaj)
+	//fmt.Printf("UpdateUser: Id : %s, Nom: %s, Prenom: %s, Courriel: %s, Pass: %s, CreatedDat: %s, UpdatedAt: %s \n", unuser.Id, unuser.Nom, unuser.Prenom, unuser.Email, unuser.Password, unuser.CreatedAt, DatedeMaj)
 
 	data := config.Utilisateur{
 		Name: "Mise à jour de l'utilisateur :" + unuser.Prenom + " " + unuser.Nom,
 		User: unuser,
 	}
-	//tmpl := template.Must(template.ParseFiles("views/UpdateUser.html"))
-	//tmpl.Execute(w, data)
+
 	renderTemplate(w, "UpdateUser", &data)
 
 }
@@ -223,8 +203,8 @@ func UpdateUserPost(w http.ResponseWriter, r *http.Request) {
 	DatedeCreation = []byte(user.CreatedAt)
 	DatedeMaj = []byte(time.Now().Format("2006-01-02"))
 
-	fmt.Printf("Avant mise à jour dans la table = Id: %d, Nom: %s, Prenom: %s, Courriel: %s, Pass: %s, CreatedDat: %s, UpdatedAt: %s\n", index, user.Nom, user.Prenom, user.Email, user.Password, DatedeCreation, DatedeMaj)
-	fmt.Printf("User.CreatedAt : %#v, CreatedAt: %#v , UpdatedAt: %#v \n", user.CreatedAt, DatedeCreation, DatedeMaj)
+	//fmt.Printf("Avant mise à jour dans la table = Id: %d, Nom: %s, Prenom: %s, Courriel: %s, Pass: %s, CreatedDat: %s, UpdatedAt: %s\n", index, user.Nom, user.Prenom, user.Email, user.Password, DatedeCreation, DatedeMaj)
+	//fmt.Printf("User.CreatedAt : %#v, CreatedAt: %#v , UpdatedAt: %#v \n", user.CreatedAt, DatedeCreation, DatedeMaj)
 	// UPDATE INTO users
 	Db, err := sql.Open("mysql", "henry:11nhri04p@tcp(127.0.0.1:3306)/base1")
 	config.CheckError(err)
@@ -252,8 +232,6 @@ func UpdateUserPost(w http.ResponseWriter, r *http.Request) {
 		User: user,
 	}
 
-	//tmpl := template.Must(template.ParseFiles("views/UpdateUserPost.html"))
-	//tmpl.Execute(w, data)
 	renderTemplate(w, "AddUserPost", &data)
 }
 
@@ -275,13 +253,12 @@ func DeleteUser(w http.ResponseWriter, r *http.Request) {
 	}
 	unuser.Email = strings.Join(strings.Fields(Arr.Email), "")
 	unuser.Id = id
-	fmt.Printf("DeleteUser= Id : %s, Nom: %s, Prenom: %s, Courriel: %s, Pass: %s, CreatedAt: %s, UpdatedAt: %s\n", unuser.Id, unuser.Nom, unuser.Prenom, unuser.Email, unuser.Password, unuser.CreatedAt, unuser.UpdatedAt)
+	//fmt.Printf("DeleteUser= Id : %s, Nom: %s, Prenom: %s, Courriel: %s, Pass: %s, CreatedAt: %s, UpdatedAt: %s\n", unuser.Id, unuser.Nom, unuser.Prenom, unuser.Email, unuser.Password, unuser.CreatedAt, unuser.UpdatedAt)
 	data := config.Utilisateur{
 		Name: "Effacer un Utilisateur :" + unuser.Prenom + " " + unuser.Nom,
 		User: unuser,
 	}
-	//tmpl := template.Must(template.ParseFiles("views/DeleteUser.html"))
-	//tmpl.Execute(w, data)
+
 	renderTemplate(w, "DeleteUser", &data)
 }
 
@@ -307,7 +284,7 @@ func DeleteUserPost(w http.ResponseWriter, r *http.Request) {
 		config.CheckError(err)
 	}
 	Arr.Email = strings.Join(strings.Fields(Arr.Email), "")
-	fmt.Printf("DeleteUserPost avant effacement = Id= %s, Nom: %s, Prenom: %s, Courriel: %s, Pass: %s, CreatedDat: %s, UpdatedAt: %s\n", id, Arr.Nom, Arr.Prenom, Arr.Email, Arr.Password, Arr.CreatedAt, Arr.UpdatedAt)
+	//fmt.Printf("DeleteUserPost avant effacement = Id= %s, Nom: %s, Prenom: %s, Courriel: %s, Pass: %s, CreatedDat: %s, UpdatedAt: %s\n", id, Arr.Nom, Arr.Prenom, Arr.Email, Arr.Password, Arr.CreatedAt, Arr.UpdatedAt)
 
 	//Update db
 	stmt, err := Db.Prepare("DELETE FROM users WHERE id =?")
@@ -326,12 +303,7 @@ func DeleteUserPost(w http.ResponseWriter, r *http.Request) {
 	data := config.Utilisateur{
 		Name: "l'utilisateur " + Arr.Nom + " " + Arr.Prenom + " a été effacé",
 	}
-	//data := models.Utilisateur{
-	//	Name: "l'utilisateur " + Arr.Nom + " a été effacé",
-	//	User: Arr,
-	//}
-	//tmpl := template.Must(template.ParseFiles("views/DeleteUserPost.html"))
-	//tmpl.Execute(w, data)
+
 	renderTemplate(w, "DeleteUserPost", &data)
 
 }

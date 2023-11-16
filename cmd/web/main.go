@@ -10,24 +10,9 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-//const (
-//	host     = "127.0.0.1"
-//	port     = 3306
-//	user     = "henry"
-//	password = "11nhri04p"
-//	dbname   = "base1"
-//	sslmode  = "disable"
-//)
-
 const (
 	Port = ":8090"
 )
-
-//	func CheckError(err error) {
-//		if err != nil {
-//			panic(err)
-//		}
-//	}
 
 func main() {
 	// On relie le fichier css

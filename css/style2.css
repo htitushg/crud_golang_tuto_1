@@ -55,8 +55,8 @@ background-color: #00000050;
 }
 .bouton3 {
   margin:1rem;
-  border: 2px solid #ffffff;
-  box-shadow: 2px 2px;
+  border: 2px solid #3551b7;
+  box-shadow: 1px 1px;
   border-radius: .5rem;
   text-align: center;
   text-decoration:none;
@@ -175,7 +175,7 @@ footer{
   align-items:center;
 } 
 .copyright{
-  overflow: scroll;
+  /*overflow: scroll;*/
   color: #0a1d70;
   border-radius: .5rem;
   border: 2px solid #00008bf0;
