@@ -2,9 +2,7 @@
     margin: 0;
     padding: 0;
     color: #0a1d70;
-}
-a{
-  text-decoration: none;
+    text-decoration:none;
 }
 body {
     background: url('papier1.jpg');
@@ -31,7 +29,7 @@ body {
     color: #000000;
     background-color: #00000020;; 
     font-size: calc(0.5rem + 0.5vw);
-    padding: 0.5rem 0.6rem;
+    padding: 0.5rem 0.5vw;
 
 }
 .bouton1:hover {
@@ -46,7 +44,7 @@ background-color: #00000050;
     color: #000000;
     background-color: #00000020;; 
     font-size: calc(0.5rem + 0.5vw);
-    padding: 0.5rem 0.6rem;
+    padding: 0.5rem 0.5vw;
 
 }
 .bouton2:hover {
@@ -59,19 +57,15 @@ background-color: #00000050;
   box-shadow: 1px 1px;
   border-radius: .5rem;
   text-align: center;
-  text-decoration:none;
   color: #000000;
   background-color: #00000020; 
   font-size: calc(0.5rem + 0.5vw);
-  padding: 0.5rem 0.6rem;
+  padding: 0.5rem 0.5vw;
 
 }
 .bouton3:hover {
   color: #8d1915;
   background-color: #00000050; 
-}
-.souligne{
-  text-decoration:none;
 }
 .cell-buttons {
     display: flex;
@@ -115,6 +109,7 @@ background-color: #00000050;
     border: 2px solid #030331; /* #00008bff ajout des deux derniers chiffres pour la transparence*/
     text-align: center;
     font-size: calc(0.7rem + 0.5vw);
+    margin: 0 auto;
 }
 .data {
     border: 2px solid #000000ff;
