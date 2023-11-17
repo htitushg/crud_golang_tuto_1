@@ -5,7 +5,6 @@ import (
 	"context"
 	"crud_golang_tuto_1/config"
 	"database/sql"
-	"fmt"
 	"log"
 	"path/filepath"
 	"strconv"
@@ -20,7 +19,6 @@ func renderTemplate(w http.ResponseWriter, tmplName string, td any) {
 
 	templateCache := appConfig.TemplateCache
 
-	// Exemple :templateCache["home.page.html"]
 	tmpl, ok := templateCache[tmplName+".html"]
 	if !ok {
 		http.Error(w, "Le template n'existe pas!", http.StatusInternalServerError)
@@ -75,7 +73,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 		myUsers = append(myUsers, UnUser)
 		i++
 
-		fmt.Printf("Id : %s, Nom: %s, Prenom: %s, Courriel: %s, Pass: %s\n", UnUser.Id, UnUser.Nom, UnUser.Prenom, UnUser.Email, UnUser.Password)
+		//fmt.Printf("Id : %s, Nom: %s, Prenom: %s, Courriel: %s, Pass: %s\n", UnUser.Id, UnUser.Nom, UnUser.Prenom, UnUser.Email, UnUser.Password)
 
 	}
 	data := config.ListeUtilisateurs{
@@ -265,11 +263,11 @@ func DeleteUser(w http.ResponseWriter, r *http.Request) {
 func DeleteUserPost(w http.ResponseWriter, r *http.Request) {
 
 	id := strings.TrimPrefix(r.URL.Path, "/DeleteUserPost/")
-	fmt.Printf("DeleteUserPost avant conversion id : %s ", id)
+	//fmt.Printf("DeleteUserPost avant conversion id : %s ", id)
 	index, err := strconv.Atoi(id)
 	config.CheckError(err)
 	// Ajouté le 8/11/2023 à 12h30
-	fmt.Printf("DeleteUserPost avant lecture table users= Id= %s ", id)
+	//fmt.Printf("DeleteUserPost avant lecture table users= Id= %s ", id)
 
 	// Delete utilisateur dans users
 	Db, err := sql.Open("mysql", "henry:11nhri04p@tcp(127.0.0.1:3306)/base1")
